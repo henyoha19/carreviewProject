@@ -6,4 +6,6 @@ urlpatterns=[
     path('getCarMakes/', views.getCarMakes, name='carmakes'),
     path('getCarModels/', views.getCarModels, name='carmodels'),
     path('carmodeldetails/<int:id>', views.carmodeldetails, name='carmodeldetails'),
+    path('newCarMake/', views.newCarMake, name='newcarmake'),
+    path('newCarModel/', views.newCarModel, name='newcarmodel'),
 ]
