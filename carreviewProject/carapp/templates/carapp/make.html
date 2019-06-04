@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Car Makes</h3>
+<table class="table">
+<tr>
+    <th> Car Make Name</th>
+    <th> Car Description</th>
+   
+</tr>
+{% for m in carmakes_list %}
+    <tr>
+        <td>{{ m.carmakename }}</td>
+        <td>{{ m.cardescription }}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock %}

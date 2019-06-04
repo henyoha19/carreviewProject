@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2> Car Model </h2>
+<table class="table">
+<tr>
+    <th> Car Model Name</th>
+    <th> Car Make</th>
+</tr>
+{% for m in carmodels_list %}
+    <tr>
+        <td><a href ="{% url 'carmodeldetails' id=p.id %}">{{ m.carmodelname }}</a></td>
+        <td>{{ m.carmake }}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock %}
