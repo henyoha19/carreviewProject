@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class CarMake (models.Model):
     carmakename=models.CharField(max_length=255, null=True, blank=True)
@@ -11,7 +12,7 @@ class CarMake (models.Model):
 
 class CarModel (models.Model):
     carmodelname=models.CharField(max_length=255)
-    Carmake =models.ForeignKey(CarMake, on_delete=models.DO_NOTHING)
+    Carmake=models.ForeignKey(CarMake, on_delete=models.DO_NOTHING)
     carprice=models.DecimalField(max_digits=10, decimal_places=2)
     manifacturingdate=models.DateField()
     carmillage=models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)

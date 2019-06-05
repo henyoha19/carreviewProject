@@ -4,11 +4,10 @@
 <table class="table">
 <tr>
     <th> Car Model Name</th>
-    <th> Car Make</th>
 </tr>
 {% for m in carmodels_list %}
     <tr>
-        <td><a href ="{% url 'carmodeldetails' id=p.id %}">{{ m.carmodelname }}</a></td>
+        <td><a href ="{% url 'carmodeldetails' id=m.id %}">{{ m.carmodelname }}</a></td>
         <td>{{ m.carmake }}</td>
     </tr>
 {% endfor %}

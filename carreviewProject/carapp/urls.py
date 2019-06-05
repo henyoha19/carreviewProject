@@ -8,4 +8,6 @@ urlpatterns=[
     path('carmodeldetails/<int:id>', views.carmodeldetails, name='carmodeldetails'),
     path('newCarMake/', views.newCarMake, name='newcarmake'),
     path('newCarModel/', views.newCarModel, name='newcarmodel'),
+    path('logintext/', views.logintext, name='logintext'),
+    path('logouttext/', views.logouttext, name='logouttext'),
 ]

@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import CarMake, CarModel, Review
 from .forms import CarMakeForm
 from .forms import CarModelForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index (request):
@@ -19,7 +20,7 @@ def carmodeldetails(request, id):
     model=get_object_or_404(CarModel, pk=id)
     return render(request, 'carapp/carmodeldetail.html',{'model': model})  
 
-
+@login_required
 def newCarMake(request):
     form=CarMakeForm
     if request.method=='POST':
@@ -32,7 +33,7 @@ def newCarMake(request):
         form=CarMakeForm()
     return render(request, 'carapp/newcarmake.html', {'form':form})  
 
-
+@login_required
 def newCarModel(request):
     form=CarModelForm
     if request.method=='POST':
@@ -43,4 +44,10 @@ def newCarModel(request):
              form=CarModelForm()
     else:
         form=CarModelForm()
-    return render(request, 'carapp/newcarmodel.html', {'form':form})  
+    return render(request, 'carapp/newcarmodel.html', {'form':form})
+
+def logintext(request):
+    return render(request,'carapp/logintext.html')
+
+def logouttext(request):
+    return render(request,'carapp/logouttext.html')
