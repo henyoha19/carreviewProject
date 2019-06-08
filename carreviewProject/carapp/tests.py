@@ -33,17 +33,17 @@ class IndexTest(TestCase):
 class GetCarModelsTest(TestCase):
     def setUp(self):
         self.model=CarModel.objects.create(carmodelname='ford', carprice= 20000,
-        manifacturingdate='2019-05-05', carmillage= 0, cardescription="comfortable car")
+        manifacturingdate='2019-05-05', carmillage= 0, cardescription="durable car")
 
-    def test_carmodel_detail_sucess(self):
-        response=self.client.get(reverse('carmodeldetails', args=(self.model.id,)))
-        self.assertEqual(response.status_code, 200)
-
+    
 # test for forms
 class CarMakeFormTest(TestCase):
     def setUp(self):
         self.userid2=User.objects.create(username='userid1', password='P@ssw0rd1')
         
+    def test_carmodel_detail_sucess(self):
+        response=self.client.get(reverse('carmodeldetails', args=(self.model.id,)))
+        self.assertEqual(response.status_code, 200)
     
     def test_carmakeForm(self):
         data={
@@ -56,8 +56,7 @@ class CarMakeFormTest(TestCase):
     def test_carmakeFormInvalid(self):
         data={
             'carmakename' : 'carmake1',
-            'cardescription' : "car1",
-           
+            'cardescription' : "car1", 
         }
         form = CarmakeForm(data=data)
         self.assertFalse(form.is_valid())
